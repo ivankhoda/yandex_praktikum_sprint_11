@@ -1,0 +1,12 @@
+.place-card__image_is-wide {
+    max-width: 80vw;
+    max-height: 80vh;
+    position: relative;
+    box-sizing: border-box;
+    width: 450px;
+    height: 561px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}

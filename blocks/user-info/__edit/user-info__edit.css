@@ -1,0 +1,19 @@
+
+.user-info__edit{
+    font-size: 12px !important;
+    height: 18px !important;
+    margin-top: 24px;
+    width: 38px  !important;
+    position: unset;
+}
+
+.user-info__edit:hover{
+    background-color: white;
+    color: black;
+}
+.user-info__edit:focus {
+    outline-color: greenyellow;
+}
+
+
+
