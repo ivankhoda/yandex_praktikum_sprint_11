@@ -1,0 +1,9 @@
+.place-card__like-count {
+    max-width: 9px;
+    max-height: 13px;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 0;
+
+    color: #000000;
+}

@@ -1,5 +1,4 @@
-
-//export default
+export default
 class UserInfo {
     constructor(name, job) {
         this.name = name;

@@ -3,7 +3,9 @@
 @import url(./__delete-icon/place-card__delete-icon.css);
 @import url(./__description/place-card__description.css);
 @import url(./__name/place-card__name.css);
+@import url(./__attributes/place-card__attributes.css);
 @import url(./__like-icon/place-card__like-icon.css);
+@import url(./__like-count/place-card__like-count.css);
 @import url(./__image/_is-wide/place-card__image_is-wide.css);
 
 .place-card {

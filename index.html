@@ -8,82 +8,87 @@
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
-  <div class="root">
-    <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
-    </header>
-    <div class="profile root__section">
-      <div class="user-info">
-        <div class="user-info__photo"></div>
-        <div class="user-info__data">
-          <h1 class="user-info__name"></h1>
+<div class="root">
+  <header class="header root__section">
+    <img src="./images/logo.svg" alt="mesto logo" class="logo">
+  </header>
+  <div class="profile root__section">
+    <div class="user-info">
+      <div class="user-info__photo"></div>
+      <div class="user-info__data">
+        <h1 class="user-info__name"></h1>
 
-          <p class="user-info__job"></p>
+        <p class="user-info__job"></p>
 
-          <button class="button user-info__edit">Edit</button>
-        </div>
-        <button class="button user-info__button">+</button>
+        <button class="button user-info__edit">Edit</button>
       </div>
-    </div>
-    <div class="places-list root__section">
-
-    </div>
-
-    <div class="popup add-place">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close">
-        <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form add-place-form" name="new">
-            <input type="text" name="name" class="popup__input popup__input_type_name"
-                   placeholder="Название">
-          <span class="warn error-name"></span>
-            <input type="url" name="link" class="popup__input popup__input_type_link-url"
-                   required placeholder="Ссылка на картинку">
-          <span class="warn error-link"></span>
-            <button class="button popup__button popup__button_plus" type="submit">+</button>
-        </form>
-      </div>
-  </div>
-
-    <div class="popup edit-profile">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form edit-user-info" name="user">
-          <input type="text" name="userName" class="popup__input popup__input_type_name inp userName"
-                 placeholder="Имя"
-                 value="">
-          <span class="warn error-userName"></span>
-
-          <input type="text" name="userFields" class="popup__input popup__input_type_fields userFields"
-                 placeholder="О себе" value="">
-          <span class="warn error-userFields"></span>
-
-          <button class="button popup__button popup__button_save" type="submit">Сохранить</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="popup wide-card">
-        <figure class="place-card__image_is-wide">
-                <img src="./images/close.svg" alt="" class="popup__close">
-        </figure>
+      <button class="button user-info__button">+</button>
     </div>
   </div>
-
+  <div class="places-list root__section">
 
   </div>
 
-<script src="./js/Card.js"></script>
-  <script src="./js/CardList.js"></script>
-  <script src="./js/UserInfo.js"></script>
-  <script src="./js/Popup.js"></script>
-  <script src="./js/FormValidator.js"></script>
-  <script src="./js/Api.js"></script>
+  <div class="popup add-place">
+    <div class="popup__content">
+      <img src="./images/close.svg" alt="" class="popup__close">
+      <h3 class="popup__title">Новое место</h3>
+      <form class="popup__form add-place-form" name="new">
+        <input type="text" name="name" class="popup__input popup__input_type_name"
+               placeholder="Название">
+        <span class="warn error-name"></span>
+        <input type="url" name="link" class="popup__input popup__input_type_link-url"
+               required placeholder="Ссылка на картинку">
+        <span class="warn error-link"></span>
+        <button class="button popup__button popup__button_plus" type="submit">+</button>
+      </form>
+    </div>
+  </div>
 
-<script src="script.js"></script>
+  <div class="popup edit-profile">
+    <div class="popup__content">
+      <img src="./images/close.svg" alt="" class="popup__close">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form edit-user-info" name="user">
+        <input type="text" name="userName" class="popup__input popup__input_type_name inp userName"
+               placeholder="Имя"
+               value="">
+        <span class="warn error-userName"></span>
 
-<!--  <script type="module" src="script.js"></script>-->
+        <input type="text" name="userFields" class="popup__input popup__input_type_fields userFields"
+               placeholder="О себе" value="">
+        <span class="warn error-userFields"></span>
+
+        <button class="button popup__button popup__button_user popup__button_save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup edit-avatar">
+    <div class="popup__content">
+      <img src="./images/close.svg" alt="" class="popup__close">
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="popup__form edit-user-avatar" name="avatar">
+        <input type="url" name="userAvatar" class="popup__input popup__input_type_avatar"
+               placeholder="Введите ссылку"
+               value="">
+        <span class="warn error-userAvatar"></span>
+        <button class="button popup__button popup__button_avatar" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup wide-card">
+    <figure class="place-card__image_is-wide">
+      <img src="./images/close.svg" alt="" class="popup__close">
+    </figure>
+  </div>
+</div>
+
+
+</div>
+
+ <script type="module" src="index.js"></script>
 
 </body>
 </html>

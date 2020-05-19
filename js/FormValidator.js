@@ -1,14 +1,5 @@
-// FormValidator
-// Класс для валидации полей формы. Его конструктор должен принимать один из двух аргументов:
-//     элемент формы,
-//     или элемент попапа, внутри которого находится эта форма.
-//     Также у класса должны быть определены методы:
-//     checkInputValidity, чтобы валидировать поля. Метод показывает ошибку, если инпуты не проходят валидацию. Если проходят — скрывает ошибку.
-//     setSubmitButtonState, чтобы делать кнопку сабмита активной и неактивной. Состояние кнопки сабмита зависит от того,
-//     прошли все поля валидацию или нет. Этот метод должен вызываться при любом изменении данных формы. Если поля в порядке, кнопка становится активной.
-//     Если одно из полей не прошло валидацию, или пользователь его не заполнил, — кнопка неактивна.
-//     setEventListeners, чтобы добавлять обработчики. Добавляет необходимые для валидации обработчики всем полям формы.
-//export default
+
+export default
 class FormValidator {
     constructor(form) {
         this.form = form;
@@ -39,7 +30,7 @@ class FormValidator {
         }
     }
     setSubmitButtonState() {
-        const inactiveButton = Array.from(document.querySelectorAll(".popup__button"));
+        const inactiveButton = Array.from(document.querySelectorAll(".popup__button_user"));
         const inactiveButtonPlus = document.querySelectorAll(".popup__button_plus");
         const formUser = document.forms.user;
         const nameField = formUser.elements.userName.value;
@@ -68,6 +59,18 @@ class FormValidator {
                 btn.removeAttribute("disabled");
             }
         })
+
+
+        if (document.avatar.userAvatar.value.length == 0 || document.avatar.userAvatar.value.length <= 1 || document.avatar.elements.userAvatar.validity.typeMismatch){
+            document.querySelector(".popup__button_avatar").classList.remove("popup__button_save");
+            document.querySelector(".popup__button_avatar").setAttribute("disabled", "disabled");
+
+        }
+        else {
+            document.querySelector(".popup__button_avatar").classList.add("popup__button_save");
+            document.querySelector(".popup__button_avatar").removeAttribute("disabled");
+        }
+
     }
     setEventListeners(){
         this
