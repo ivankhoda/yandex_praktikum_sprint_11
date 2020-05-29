@@ -1,6 +1,4 @@
-
-export default
-class FormValidator {
+export default class FormValidator {
     constructor(form) {
         this.form = form;
     }
@@ -30,7 +28,7 @@ class FormValidator {
         }
     }
     setSubmitButtonState() {
-        const inactiveButton = Array.from(document.querySelectorAll(".popup__button_user"));
+        const inactiveButton = Array.from(document.querySelectorAll(".popup__button"));
         const inactiveButtonPlus = document.querySelectorAll(".popup__button_plus");
         const formUser = document.forms.user;
         const nameField = formUser.elements.userName.value;
@@ -59,18 +57,6 @@ class FormValidator {
                 btn.removeAttribute("disabled");
             }
         })
-
-
-        if (document.avatar.userAvatar.value.length == 0 || document.avatar.userAvatar.value.length <= 1 || document.avatar.elements.userAvatar.validity.typeMismatch){
-            document.querySelector(".popup__button_avatar").classList.remove("popup__button_save");
-            document.querySelector(".popup__button_avatar").setAttribute("disabled", "disabled");
-
-        }
-        else {
-            document.querySelector(".popup__button_avatar").classList.add("popup__button_save");
-            document.querySelector(".popup__button_avatar").removeAttribute("disabled");
-        }
-
     }
     setEventListeners(){
         this

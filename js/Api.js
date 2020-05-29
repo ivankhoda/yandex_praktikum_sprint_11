@@ -1,7 +1,5 @@
-import {token} from "./Variables.js";
-import {baseURL} from "./Variables.js";
-
-export default class Api {
+import {token, baseURL} from "../src/index.js"
+class Api {
     constructor(options) {
         this.options = options;
     }
@@ -17,13 +15,9 @@ export default class Api {
             .then(res => {
                 if (res.ok) {
                     return res.json();
-
                 }
                 return Promise.reject(`Error: ${res.status}`);
             })
-            // .then(result =>{
-            //     console.log(result);
-            // })
             .catch((err) => {
                 return Promise.reject(`Error: ${err.status}`);
             });
@@ -181,3 +175,5 @@ export default class Api {
             });
     }
 }
+export {Api}
+

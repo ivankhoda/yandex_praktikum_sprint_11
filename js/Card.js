@@ -1,5 +1,4 @@
-export default
-class Card {
+export default class Card {
     constructor(name, link, likes, ownerId, cardId, myId, api) {
         this.name = name;
         this.link = link;
@@ -39,7 +38,7 @@ class Card {
         if(event.target.classList.contains("place-card__image")) {
             document.querySelector(".wide-card").classList.add("popup_is-opened");
             document.querySelector(".place-card__image_is-wide").setAttribute("style",
-            `${event.target.getAttribute("style")}`);
+                `${event.target.getAttribute("style")}`);
         }
     }
     create() {
@@ -60,25 +59,25 @@ class Card {
                 .card
                 .querySelector(".place-card__image")
                 .insertAdjacentHTML(
-                "beforeend",
-                `<button class="place-card__delete-icon"></button>`
+                    "beforeend",
+                    `<button class="place-card__delete-icon"></button>`
                 )
             this
                 .card
                 .querySelector('.place-card__delete-icon')
                 .addEventListener(
-                'click',
+                    'click',
                     (event) => {
-                    if (window.confirm()) {
-                        this.api.deleteCard(this.cardId)
-                            .then(() => {
-                                this.card.remove()
-                            })
-                            .catch((err) => {
-                                console.log(err)
-                            });
-                    }
-                })
+                        if (window.confirm()) {
+                            this.api.deleteCard(this.cardId)
+                                .then(() => {
+                                    this.card.remove()
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                });
+                        }
+                    })
         }
         this.likes.forEach((like)=> {
             if (like._id === this.myId){
@@ -101,5 +100,5 @@ class Card {
             .card
             .querySelector(".place-card__image")
             .addEventListener("click", this.zoom);
-        }
     }
+}

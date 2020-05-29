@@ -1,17 +1,18 @@
-import {
-    addPlaceForm,
-    api,
-    cardList, changeAvatar,
-    myId,
-    popupAvatar,
-    popupCard,
-    popupPlace,
-    popupUser,
-    updateUserInfoForm,
-    user
-} from "./js/Variables.js";
-import Card from "./js/Card.js";
+import './index.css';
+import Card from "../js/Card.js";
+import CardList from "../js/CardList.js";
+import Popup from "../js/Popup.js";
+import UserInfo from "../js/UserInfo.js";
+import FormValidator from "../js/FormValidator.js";
+import {Api} from "../js/Api.js";
 
+
+
+const token = "f22aff37-eb29-4584-988f-49dedb4638b8";
+const baseURL = "https://praktikum.tk/cohort10";
+const myId = "8f5d7ee133c09e43d0c56eaa";
+const api = new Api({baseURL, token});
+const cardList = new CardList(document.querySelector(".places-list"), api);
 
 api.getInitialCards()
     .then(result => {
@@ -37,7 +38,7 @@ api.getUserInfo()
         return Promise.reject(`Error: ${err.status}`)
     });
 
-let renderLoading = function (isLoading) {
+function renderLoading(isLoading) {
     if(isLoading){
         document.querySelector(".popup__button_plus").innerHTML = "Загрузка..."
         document.querySelector(".popup__button_save").innerHTML = "Загрузка..."
@@ -48,7 +49,7 @@ let renderLoading = function (isLoading) {
     }
 }
 
-let addNewCard = function () {
+function addNewCard () {
 
     api.postNewCard(document.new.name.value, document.new.link.value)
         .then((res) => {
@@ -68,8 +69,9 @@ let addNewCard = function () {
             renderLoading(false);
         })
 }
-
-document.querySelector(".popup__button_plus").addEventListener(
+const popupBtnPlus = document.querySelector(".popup__button_plus")
+popupBtnPlus
+    .addEventListener(
     'click',
     (event) => {
         event.preventDefault();
@@ -79,7 +81,10 @@ document.querySelector(".popup__button_plus").addEventListener(
     }
 );
 
-
+const popupUser = new Popup(document.querySelector(".edit-profile"));
+const popupPlace = new Popup(document.querySelector(".add-place"));
+const popupCard = new Popup(document.querySelector(".wide-card"));
+const popupAvatar = new Popup(document.querySelector(".edit-avatar"));
 
 document.querySelector(".user-info__edit").addEventListener(
     "click",
@@ -113,8 +118,7 @@ document.querySelectorAll(".popup__close").forEach((
         )
     }
 );
-
-let formReset = function () {
+function formReset () {
     document.new.reset();
     document.user.reset();
     document.avatar.reset();
@@ -125,9 +129,9 @@ let formReset = function () {
     document.querySelector(".popup__button_plus").setAttribute("disabled", "disabled");
 }
 
+const user = new UserInfo((document.querySelector(".user-info__name")), (document.querySelector(".user-info__job")));
 
-
-let updateUserInfo = function () {
+function updateUserInfo() {
     api.editProfile(document.user.userName.value, document.user.userFields.value)
         .then((res) => {
             document.querySelector(".user-info__name").textContent = res.name;
@@ -154,7 +158,7 @@ document.querySelector(".popup__button_save").addEventListener(
     }
 );
 
-let updateAvatar = function () {
+function updateAvatar() {
     api.changeAvatar(document.avatar.userAvatar.value)
         .then((res) => {
             document.querySelector(".user-info__photo").style.backgroundImage = `url(${res.avatar})`
@@ -168,11 +172,16 @@ document.querySelector(".popup__button_avatar").addEventListener(
     updateAvatar
 );
 
+
+const updateUserInfoForm = new FormValidator(document.querySelector(".add-place-form"));
+const addPlaceForm = new FormValidator(document.querySelector(".edit-user-info"));
+const changeAvatar = new FormValidator(document.querySelector(".edit-user-avatar"));
 updateUserInfoForm.setEventListeners();
 addPlaceForm.setEventListeners();
 changeAvatar.setEventListeners();
 
 
+export {token, baseURL}
 
 
 
