@@ -76,7 +76,7 @@ module.exports = {
         }
       ),
         new webpack.DefinePlugin({
-        API_URL: JSON.stringify(API)
+            'NODE_ENV':'process.env.NODE_ENV'
         }),
         new WebpackMd5Hash()
     ],

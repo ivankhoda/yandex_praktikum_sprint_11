@@ -10,10 +10,10 @@ import {Api} from "../js/Api.js";
 
 const token = "f22aff37-eb29-4584-988f-49dedb4638b8";
 let baseURL;
-if(process.env.NODE_ENV === 'production') {
+if(NODE_ENV === 'production') {
     baseURL =  "https://praktikum.tk/cohort10"
 }
-if (process.env.NODE_ENV === 'development') {
+if (NODE_ENV === 'development') {
     baseURL =  "http://praktikum.tk/cohort10"
 }
 
