@@ -1,4 +1,9 @@
 .place-card__attributes{
+<<<<<<< develop
+=======
+    /*max-height: 21px;*/
+    /*height: unset;*/
+>>>>>>> master
     display: flex;
     flex-direction: column;
     align-items: center;
