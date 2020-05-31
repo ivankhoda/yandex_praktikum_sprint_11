@@ -5,9 +5,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
+const webpack = require('webpack')
+const autoprefixer =  require('autoprefixer')
+// ({
+//     //browsers:'last 10 versions'
+// })
 
 const isDev = process.env.NODE_ENV === 'development';
+const API = process.env.api;
 
 
 
@@ -30,7 +35,12 @@ module.exports = {
                 test: /\.css$/i,
                 use:  [
                     (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                    'css-loader'
+                    {
+                        loader:'css-loader',
+                        options: {
+                            importLoaders: 2
+                        }
+                    }
                 ]
             },
             {
@@ -39,7 +49,6 @@ module.exports = {
                 options: {
                     esModule: false,
                 },
-
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
@@ -70,6 +79,9 @@ module.exports = {
      },
         }
       ),
+        new webpack.DefinePlugin({
+        API_URL: JSON.stringify(API)
+        }),
         new WebpackMd5Hash()
     ],
 

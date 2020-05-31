@@ -1,7 +1,7 @@
 {
   "name": "yandex_praktikum_sprint_11",
   "version": "1.0.0",
-  "description": "",
+  "description": "YandexPraktikum practical work num.11",
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
@@ -13,26 +13,28 @@
     "url": "git+https://github.com/ivankhoda/yandex_praktikum_sprint_11.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ivan Khoda",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ivankhoda/yandex_praktikum_sprint_11/issues"
   },
+  "browserslist": [
+    "last 2 version"
+  ],
   "homepage": "https://github.com/ivankhoda/yandex_praktikum_sprint_11#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
+    "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
-    "gh-pages": "^2.2.0",
-    "html-loader": "^1.1.0",
+    "gh-pages": "3.0.0",
     "html-webpack-plugin": "^4.3.0",
-    "image-webpack-loader": "^6.0.0",
-    "lodash-template-webpack-loader": "^1.0.2",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
