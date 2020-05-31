@@ -5,16 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const webpack = require('webpack')
-const autoprefixer =  require('autoprefixer')
-// ({
-//     //browsers:'last 10 versions'
-// })
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
 const API = process.env.api;
-
-
 
 module.exports = {
     entry: { main: './src/index.js' },
@@ -47,6 +41,8 @@ module.exports = {
                 test: /\.(gif|png|jpe?g|ico|svg)$/i,
                 loader: 'file-loader?name=./images/[name].[ext]',
                 options: {
+                    name: '[path][name].[ext]',
+                    context: '',
                     esModule: false,
                 },
             },
