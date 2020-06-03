@@ -1,6 +1,5 @@
-import {token, baseURL} from "../index.js"
-
-export default class Api {
+import {token, baseURL} from "../src/index.js"
+class Api {
     constructor(options) {
         this.options = options;
     }
@@ -176,3 +175,5 @@ export default class Api {
             });
     }
 }
+export {Api}
+

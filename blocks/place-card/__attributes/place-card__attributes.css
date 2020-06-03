@@ -1,6 +1,5 @@
 .place-card__attributes{
-    /*max-height: 21px;*/
-    /*height: unset;*/
+
     display: flex;
     flex-direction: column;
     align-items: center;
