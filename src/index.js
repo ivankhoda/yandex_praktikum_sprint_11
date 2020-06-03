@@ -10,11 +10,11 @@ import {Api} from "../js/Api.js";
 
 const token = "f22aff37-eb29-4584-988f-49dedb4638b8";
 let baseURL;
-if(NODE_ENV === 'production') {
-    baseURL =  "https://praktikum.tk/cohort10"
-}
-if (NODE_ENV === 'development') {
+if (NODE_ENV === "development"){
     baseURL =  "http://praktikum.tk/cohort10"
+}
+else {
+    baseURL =  "https://praktikum.tk/cohort10"
 }
 
 const myId = "8f5d7ee133c09e43d0c56eaa";
@@ -143,7 +143,6 @@ function updateUserInfo() {
         .then((res) => {
             document.querySelector(".user-info__name").textContent = res.name;
             document.querySelector(".user-info__job").textContent = res.about;
-
         })
         .catch((err) => {
             return Promise.reject(`Error: ${err.status}`)
